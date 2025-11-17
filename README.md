@@ -1,4 +1,4 @@
-# 🎼 InsightHub – Image→Music Multimodal Retrieval  
+# InsightHub – Image→Music Multimodal Retrieval  
 ### *Research Branch Overview (CLIP×CLAP · Text-Pivot · Emo-CLIP · ImageBind)*
 
 This repository hosts multiple research branches exploring different approaches for recommending music from user-uploaded images.  
@@ -126,11 +126,17 @@ ImageBind provides the most comprehensive cross-modal synchrony, capturing rhyth
 
 # 📂 Repository Structure
 main/
+
 ├── clip-x-clap/
+
 ├── text-pivot/
+
 ├── emo-clip/
+
 ├── imagebind/
+
 └── evaluation/
+
 
 
 Each folder represents an independent research track with its own methodology, experiments, and documentation.
