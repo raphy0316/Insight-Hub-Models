@@ -1,0 +1,34 @@
+clip:
+  enable: true
+  model_name: ViT-B-32
+  pretrained: laion2b_s34b_b79k
+  device: auto   # auto | cpu | cuda
+
+clap:
+  enable: true
+  model_name: laion_clap
+  device: auto   # auto | cpu | cuda
+
+text_fallback:
+  enable: true
+  sentence_transformer: sentence-transformers/all-MiniLM-L6-v2
+  use_tfidf_fallback: true
+
+preprocessing:
+  lowercase: true
+  deduplicate_tokens: true
+  min_token_length: 2
+  joiner: " "
+  fields_order: ["title", "artists", "album", "genres", "editorial_tags", "lyrics", "summary"]
+
+retrieval:
+  top_k_default: 20
+  weights:
+    clip: 1.0     # image(CLIP) vs text (music meta via CLIP text)
+    clap: 1.0     # audio(CLAP) vs text (image keywords via CLAP text)
+    text: 0.5     # pure text fallback (ST/TF-IDF)
+
+logging:
+  level: INFO
+
+

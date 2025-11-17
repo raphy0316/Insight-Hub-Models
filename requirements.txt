@@ -1,0 +1,20 @@
+# Core dependencies
+numpy>=1.21.0
+pyyaml>=5.4.0
+pillow>=8.0.0
+
+# PyTorch (required for CLIP and CLAP)
+torch>=1.12.0
+
+# CLIP (image-text matching)
+open-clip-torch>=2.0.0
+
+# CLAP (audio-text matching)
+laion-clap>=1.1.0
+
+# Text fallback (recommended)
+sentence-transformers>=2.2.0
+
+# Text fallback (required if sentence-transformers unavailable)
+scikit-learn>=1.0.0
+
