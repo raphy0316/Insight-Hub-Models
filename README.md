@@ -1,4 +1,4 @@
-# 🎼 InsightHub – Image→Music Multimodal Retrieval  
+# InsightHub – Image→Music Multimodal Retrieval  
 ### *Research Branch Overview (CLIP×CLAP · Text-Pivot · Emo-CLIP · ImageBind)*
 
 InsightHub is a research-driven project that benchmarks **multiple multimodal alignment strategies** to determine the **best combination of models and methods** for recommending music from user-uploaded images.  
@@ -10,7 +10,7 @@ Following the research phase, these findings will be used to build a **productio
 
 ---
 
-## 🔑 Cross-Modal Alignment Dimensions
+## Cross-Modal Alignment Dimensions
 
 We evaluate all models across the following dimensions:
 
@@ -26,7 +26,7 @@ Each research branch is intentionally chosen as a representative model for one p
 
 ---
 
-# 🌿 Branch Overview  
+# Branch Overview  
 Below is a high-level summary of each research branch and its representative role.  
 (Full pipelines and implementation details are provided inside each branch directory.)
 
@@ -85,7 +85,7 @@ Represents **cross-modal synchrony**.
 
 ---
 
-# 📊 Summary Comparison
+# Summary Comparison
 
 | Model | Representative Role | Semantic | Thematic | Energy | Color–Timbre | Rhythm↔Motion | Affective |
 |-------|---------------------|----------|----------|--------|--------------|---------------|-----------|
@@ -96,7 +96,7 @@ Represents **cross-modal synchrony**.
 
 ---
 
-# 📂 Repository Structure
+# Repository Structure
 main/
 ├── clip-x-clap/ # Semantic alignment branch
 
@@ -113,7 +113,7 @@ Each folder contains its own experiments, notebooks, and model implementation.
 
 ---
 
-# 🧪 Research Goal
+# Research Goal
 
 This project aims to:
 
@@ -126,7 +126,7 @@ The output of this research phase will directly inform both the architecture and
 
 ---
 
-# 🚀 Product Direction (2025)
+# Product Direction (2025)
 
 After selecting the best-performing models and combinations,  
 InsightHub will evolve into an **SNS-oriented product** where:
