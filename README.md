@@ -1,16 +1,20 @@
-# InsightHub – Image→Music Multimodal Retrieval  
+# 🎼 InsightHub – Image→Music Multimodal Retrieval  
 ### *Research Branch Overview (CLIP×CLAP · Text-Pivot · Emo-CLIP · ImageBind)*
 
-This repository hosts multiple research branches exploring different approaches for recommending music from user-uploaded images.  
-Each branch implements a distinct **multimodal alignment strategy**, and all models are compared through the InsightHub platform.
+InsightHub is a research-driven project that benchmarks **multiple multimodal alignment strategies** to determine the **best combination of models and methods** for recommending music from user-uploaded images.  
+We systematically compare different cross-modal approaches to understand how image mood, theme, semantics, and motion cues map to musical characteristics.
+
+This repository hosts independent research branches—each representing a different alignment philosophy—allowing us to evaluate and combine models to discover the **optimal retrieval pipeline for image-driven music recommendation**.
+
+Following the research phase, these findings will be used to build a **production-ready SNS product** that recommends music based on the aesthetic, mood, and meaning of images posted by users.
 
 ---
 
 ## 🔑 Cross-Modal Alignment Dimensions
 
-We evaluate each approach based on the following core dimensions:
+We evaluate all models across the following dimensions:
 
-- **Cross-modal synchrony**
+- **Cross-modal synchrony**  
   - Energy coherence  
   - Temporal rhythm ↔ visual motion  
   - Color–timbre association  
@@ -18,134 +22,120 @@ We evaluate each approach based on the following core dimensions:
 - **Thematic match**
 - **Affective (emotional) alignment**
 
-Different models specialize in different subsets of these factors.
+Each research branch is intentionally chosen as a representative model for one primary dimension, enabling clean and interpretable comparisons across alignment types.
 
 ---
 
-# 🌿 Branch Overview
-
-Below is a high-level summary of each research branch.  
-(Full pipelines and implementation details are documented inside each branch directory.)
-
----
-
-## 1. `text-pivot/`
-### **Concept:** Normalize both images and music into the **text domain**, then match based on shared concepts/themes.
-
-The Text-Pivot approach extracts keywords or descriptive text from both the image and the music, embeds them in the same text space, and computes similarity.  
-It achieves the strongest **semantic and thematic** alignment.
-
-**Strengths**
-- Excellent semantic and thematic reasoning  
-- Human-interpretable, concept-level matching  
-- Utilizes metadata (captions, hashtags, lyrics, editorial tags)
-
-**Alignment Focus**
-| Dimension | Contribution |
-|----------|--------------|
-| Semantic match | ⭐⭐⭐⭐⭐ |
-| Thematic match | ⭐⭐⭐⭐ |
-| Energy coherence | ⭐⭐⭐ |
-| Affective alignment | ⭐⭐ |
-| Color–timbre association | ⭐ |
+# 🌿 Branch Overview  
+Below is a high-level summary of each research branch and its representative role.  
+(Full pipelines and implementation details are provided inside each branch directory.)
 
 ---
 
-## 2. `clip-x-clap/`
-### **Concept:** Match CLIP image embeddings with CLAP audio embeddings through their shared text interface.
+## 1. `text-pivot/` — **Representative of *Thematic Match***
+### Concept  
+Normalize both images and music into the **text domain**, then match based on shared concepts/themes.
 
-A robust baseline that performs direct multimodal alignment using widely-adopted embedding models.
+### Why This Branch Matters  
+This approach excels at reasoning about **topics, context, genres, and themes** using captions, hashtags, lyrics, and metadata.  
+It serves as the **thematic alignment** representative.
 
-**Strengths**
-- Fast, stable, and zero-shot friendly  
-- Good general semantic alignment  
-- Lightweight compared to ImageBind
-
-**Alignment Focus**
-| Dimension | Contribution |
-|----------|--------------|
-| Semantic match | ⭐⭐⭐⭐ |
-| Thematic match | ⭐⭐⭐ |
-| Energy coherence | ⭐⭐ |
-| Affective alignment | ⭐ |
-| Color–timbre association | ⭐⭐ |
+### Alignment Focus  
+- **Thematic match** ⭐⭐⭐⭐  
+- Semantic match ⭐⭐⭐⭐⭐  
 
 ---
 
-## 3. `emo-clip/`
-### **Concept:** Map image emotion (valence/arousal) to the emotional spectrum of music.
+## 2. `clip-x-clap/` — **Representative of *Semantic Match***
+### Concept  
+Align CLIP image embeddings with CLAP audio embeddings through a shared text interface.
 
-This branch focuses on **mood-driven** recommendations rather than semantics or themes.
+### Why This Branch Matters  
+A strong and robust **semantic understanding baseline**, ideal for object/scene → concept-level mapping.  
+Represents the **semantic alignment** category.
 
-**Strengths**
-- Best emotional alignment across all models  
-- Works for portraits, landscapes, and abstract scenes  
-- Direct mapping between image mood and audio emotion features
-
-**Alignment Focus**
-| Dimension | Contribution |
-|----------|--------------|
-| Affective alignment | ⭐⭐⭐⭐⭐ |
-| Energy coherence | ⭐⭐⭐⭐ |
-| Color–timbre association | ⭐⭐⭐ |
-| Semantic/Thematic match | Low |
+### Alignment Focus  
+- **Semantic match** ⭐⭐⭐⭐  
 
 ---
 
-## 4. `imagebind/`
-### **Concept:** Use a shared embedding space covering image, audio, text, and motion.
+## 3. `emo-clip/` — **Representative of *Affective Alignment***
+### Concept  
+Map image emotion (valence/arousal) directly to music emotion features.
 
-ImageBind provides the most comprehensive cross-modal synchrony, capturing rhythm, intensity, texture, and atmosphere.
+### Why This Branch Matters  
+This branch specializes in **mood and emotional resonance**, ideal for affect-driven recommendations.  
+Represents **affective alignment**.
 
-**Strengths**
-- Strongest overall multimodal alignment  
-- Natural mapping between visual motion ↔ audio rhythm  
-- High upper-bound performance for complex scenes
+### Alignment Focus  
+- **Affective alignment** ⭐⭐⭐⭐⭐  
 
-**Alignment Focus**
-| Dimension | Contribution |
-|----------|--------------|
-| Cross-modal synchrony | ⭐⭐⭐⭐⭐ |
-| Rhythm ↔ visual motion | ⭐⭐⭐⭐⭐ |
-| Color–timbre association | ⭐⭐⭐⭐ |
-| Energy coherence | ⭐⭐⭐⭐ |
-| Semantic/Thematic match | ⭐⭐⭐⭐ |
+---
+
+## 4. `imagebind/` — **Representative of *Cross-Modal Synchrony***
+### Concept  
+Use a unified embedding space across image, audio, text, and motion.
+
+### Why This Branch Matters  
+ImageBind naturally captures **visual motion ↔ audio rhythm**, timbre, and multimodal energy coherence.  
+Represents **cross-modal synchrony**.
+
+### Alignment Focus  
+- **Cross-modal synchrony** ⭐⭐⭐⭐⭐  
 
 ---
 
 # 📊 Summary Comparison
 
-| Model | Semantic | Thematic | Energy | Color–Timbre | Rhythm↔Motion | Affective |
-|-------|----------|----------|--------|--------------|---------------|-----------|
-| **Text-Pivot** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐ | ⭐ | ⭐⭐ |
-| **CLIP×CLAP** | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ | ⭐⭐ | ⭐ | ⭐ |
-| **Emo-CLIP** | ⭐ | ⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐ | ⭐⭐⭐⭐⭐ |
-| **ImageBind** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
+| Model | Representative Role | Semantic | Thematic | Energy | Color–Timbre | Rhythm↔Motion | Affective |
+|-------|---------------------|----------|----------|--------|--------------|---------------|-----------|
+| **Text-Pivot** | Thematic | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐ | ⭐ | ⭐⭐ |
+| **CLIP×CLAP** | Semantic | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ | ⭐⭐ | ⭐ | ⭐ |
+| **Emo-CLIP** | Affective | ⭐ | ⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐ | ⭐⭐⭐⭐⭐ |
+| **ImageBind** | Cross-modal synchrony | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
 
 ---
 
 # 📂 Repository Structure
 main/
+├── clip-x-clap/ # Semantic alignment branch
 
-├── clip-x-clap/
+├── text-pivot/ # Thematic alignment branch
 
-├── text-pivot/
+├── emo-clip/ # Affective alignment branch
 
-├── emo-clip/
-
-├── imagebind/
+├── imagebind/ # Cross-modal synchrony branch
 
 └── evaluation/
 
 
-
-Each folder represents an independent research track with its own methodology, experiments, and documentation.
-
----
-
-# 🚀 Roadmap
-
-Our goal for 2025 is to build a production-ready **image-driven music recommendation service**, supported by InsightHub’s evaluation framework for model comparison, A/B testing, and UX prototyping.
+Each folder contains its own experiments, notebooks, and model implementation.
 
 ---
 
+# 🧪 Research Goal
+
+This project aims to:
+
+1. Benchmark and compare **diverse model combinations**  
+2. Understand which alignment strategies best translate **image mood, theme, and emotion** into meaningful music recommendations  
+3. Identify the **optimal retrieval architecture** for real-world image-driven music recommendation  
+4. Produce clear insights on model behavior across alignment dimensions
+
+The output of this research phase will directly inform both the architecture and ranking pipeline of the final product.
+
+---
+
+# 🚀 Product Direction (2025)
+
+After selecting the best-performing models and combinations,  
+InsightHub will evolve into an **SNS-oriented product** where:
+
+- Users post images  
+- The system interprets mood, theme, emotion, and synchrony cues  
+- A tailored music recommendation is delivered instantly  
+- Recommendations can be shared, remixed, or curated socially
+
+This README reflects the research foundation that will lead into the final user-facing application.
+
+---
