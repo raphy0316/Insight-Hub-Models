@@ -1,4 +1,4 @@
-# InsightHub – Image→Music Multimodal Retrieval  
+# InsightHub-Models – Image→Music Multimodal Retrieval  
 ### *Research Branch Overview (CLIP×CLAP · Text-Pivot · Emo-CLIP · ImageBind)*
 
 InsightHub is a research-driven project that benchmarks **multiple multimodal alignment strategies** to determine the **best combination of models and methods** for recommending music from user-uploaded images.  
@@ -129,7 +129,7 @@ The output of this research phase will directly inform both the architecture and
 # Product Direction (2025)
 
 After selecting the best-performing models and combinations,  
-InsightHub will evolve into an **SNS-oriented product** where:
+Models developed based on InsightHub will evolve into an **SNS-oriented product** where:
 
 - Users post images  
 - The system interprets mood, theme, emotion, and synchrony cues  
