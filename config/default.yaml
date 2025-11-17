@@ -1,0 +1,22 @@
+embedder:
+  name: sentence-transformers/all-MiniLM-L6-v2  # Recommended when available
+  device: auto  # auto | cpu | cuda
+  use_fallback_tfidf: true
+
+preprocessing:
+  lowercase: true
+  deduplicate_tokens: true
+  min_token_length: 2
+  joiner: " "
+  fields_order: ["title", "artists", "album", "genres", "editorial_tags", "lyrics", "summary"]
+
+retrieval:
+  top_k_default: 20
+  weights:
+    embedding: 1.0   # Current default embedding score weight
+    # ltr_feature_x: 0.0  # Define weights when adding LTR features in the future
+
+logging:
+  level: INFO
+
+

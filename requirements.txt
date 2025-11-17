@@ -1,0 +1,10 @@
+# Core dependencies
+numpy>=1.21.0
+pyyaml>=5.4.0
+
+# Text embedding (recommended)
+sentence-transformers>=2.2.0
+
+# Text fallback (required if sentence-transformers unavailable)
+scikit-learn>=1.0.0
+
